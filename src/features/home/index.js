@@ -5,3 +5,5 @@ export { default as DevicesList } from './DevicesList';
 export { default as Entorno } from './Entorno';
 export { default as NetSignal } from './NetSignal';
 export { default as Device } from './Device';
+export { default as DeviceConfig } from './DeviceConfig';
+export { default as DeviceView } from './DeviceView';
