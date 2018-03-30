@@ -20,6 +20,7 @@ import { reducer as addDeviceReducer } from './addDevice';
 import { reducer as addSensorReducer } from './addSensor';
 import { reducer as fetchSensorsReducer } from './fetchSensors';
 import { reducer as setActiveEntornoReducer } from './setActiveEntorno';
+import { reducer as networksScanReducer } from './networksScan';
 
 const reducers = [
   counterPlusOneReducer,
@@ -34,6 +35,7 @@ const reducers = [
   addSensorReducer,
   fetchSensorsReducer,
   setActiveEntornoReducer,
+  networksScanReducer,
 ];
 
 export default function reducer(state = initialState, action) {

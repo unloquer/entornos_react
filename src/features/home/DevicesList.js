@@ -60,9 +60,8 @@ export class DevicesList extends Component {
   }
 
   componentWillMount (props) {
-    console.log(props)
     this.props.actions.fetchDevices()
-
+    this.props.actions.networksScan()
   }
 
   render() {
@@ -97,7 +96,7 @@ export class DevicesList extends Component {
 
         <Table rowKey='_id'
           columns={this.columns}
-          expandedRowRender={record => <DeviceConfig />}
+          expandedRowRender={record => <DeviceConfig networks={this.props.home.networksList}/>}
           dataSource={this.props.home.devices}
         />
 
@@ -110,7 +109,6 @@ export class DevicesList extends Component {
 function mapStateToProps(state) {
   return {
     home: state.home,
-    devices : state.devices
   };
 }
 

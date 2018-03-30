@@ -26,6 +26,8 @@ const initialState = {
   addSensorError: null,
   fetchSensorsPending: false,
   fetchSensorsError: null,
+  networksScanPending: false,
+  networksScanError: null,
 };
 
 export default initialState;

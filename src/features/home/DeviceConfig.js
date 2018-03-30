@@ -1,5 +1,6 @@
+import _ from 'underscore'
 import React, { Component } from 'react';
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Select, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 
 function hasErrors(fieldsError) {
@@ -14,6 +15,7 @@ class DeviceConfig extends Component {
   componentDidMount() {
     // To disabled submit button at the beginning.
     this.props.form.validateFields();
+    console.log(this.props.networks);
   }
 
   handleSubmit = (e) => {
@@ -23,6 +25,10 @@ class DeviceConfig extends Component {
         console.log('Received values of form: ', values);
       }
     });
+  }
+
+  renderOptions = () => {
+    return _.map(this.props.networks, n => <Option key={n.bssid} value={n.essid}>{n.essid}</Option>)
   }
 
   render() {
@@ -37,6 +43,18 @@ class DeviceConfig extends Component {
         <Form layout="inline" onSubmit={this.handleSubmit}>
           <span className="ant-row ant-form-item text"><Icon type="wifi" style={{ fontSize: 16, color: '#0F0' }} /></span>
           <span className="ant-row ant-form-item text">Nombre de red</span>
+          <FormItem>
+            {getFieldDecorator('network', {
+               rules: [{ required: true, message: 'Nombre de red!' }],
+            })(
+               <Select
+                 placeholder="Select a option and change input text above"
+                 onChange={this.handleSelectChange}
+                 >
+                 {this.renderOptions()}
+               </Select>
+             )}
+          </FormItem>
           <FormItem
             validateStatus={deviceNameError ? 'error' : ''}
             help={deviceNameError || ''}

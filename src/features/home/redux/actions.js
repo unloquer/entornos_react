@@ -12,3 +12,4 @@ export { addDevice, dismissAddDeviceError } from './addDevice';
 export { addSensor, dismissAddSensorError } from './addSensor';
 export { fetchSensors, dismissFetchSensorsError } from './fetchSensors';
 export { setActiveEntorno } from './setActiveEntorno';
+export { networksScan, dismissNetworksScanError } from './networksScan';
