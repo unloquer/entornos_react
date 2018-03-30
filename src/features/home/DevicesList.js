@@ -73,7 +73,6 @@ export class DevicesList extends Component {
       <div className="home-devices-list">
         <div className="table-operations">
           <Button onClick={this.showModal}>Agrega dispositivo</Button>
-          <DeviceConfig />
         </div>
 
         <Modal
@@ -98,7 +97,7 @@ export class DevicesList extends Component {
 
         <Table rowKey='_id'
           columns={this.columns}
-          expandedRowRender={record => <p style={{ margin: 0 }}>{record.descripcion}</p>}
+          expandedRowRender={record => <DeviceConfig />}
           dataSource={this.props.home.devices}
         />
 
