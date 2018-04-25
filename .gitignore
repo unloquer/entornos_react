@@ -7,5 +7,6 @@ coverage
 .tmp
 .DS_Store
 
+tags
 *.swp
 *.swo
